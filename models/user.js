@@ -6,7 +6,6 @@ var userSchema = new Schema({
     password: String,
     email:String,
     role:String,
-    userID:String
 },{
     timestamps:true
 })

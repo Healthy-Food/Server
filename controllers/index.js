@@ -24,8 +24,6 @@ const signIn = (req, res) => {
         email: req.body.email
     })
         .then(function (user) {
-            console.log(user);
-            console.log(req.body);
             if (user) {
                 let token = jwt.sign({ username: user.username, role: user.role, email: user.email }, 'secretkey')
                 let decodedPass = bcrypt.compare(req.body.password, user.password)
