@@ -6,6 +6,7 @@ var userSchema = new Schema({
     password: String,
     email:String,
     role:String,
+    food:[[{type:Schema.Types.ObjectId, ref:'Food'}]]
 },{
     timestamps:true
 })

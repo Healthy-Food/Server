@@ -1,9 +1,15 @@
 var express = require('express');
-var router = express.Router();
+var routes = express.Router();
+const routesFood = require('./food')
+const {addFood,readAllFood,readOneFood,removeFood,update} = require('../controllers/user')
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+routes.use('/food',routesFood)
 
-module.exports = router;
+routes.get('/home',readAllFood)
+routes.post('/home',addFood)
+routes.get('/home/:id',readOneFood)
+routes.delete('/home/:id',removeFood)
+routes.put('/home/:id',update)
+
+
+module.exports = routes;
