@@ -1,9 +1,15 @@
+// const routes = require('express').Router()
+// const routesUser = require('./users')
 var express = require('express');
-var router = express.Router();
+var routes = express.Router();
+const {signUp,signIn} = require('../controllers/index') 
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 
-module.exports = router;
+// routes.use('/users',routesUser)
+
+routes.post('/signup', signUp)
+routes.post('/signin', signIn)
+
+
+
+module.exports = routes;
