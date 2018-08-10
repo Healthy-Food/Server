@@ -20,6 +20,7 @@ class Controller{
                         password : data.data.id
                     })
                     .then(dataUser=>{
+                        console.log(dataUser)
                         let token = jwt.sign({ username: user.username, email: user.email }, 'secretkey')
                         res.json({dataUser,token})
                     })
