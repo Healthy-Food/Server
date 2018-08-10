@@ -11,7 +11,7 @@ var db = mongoose.connection
 var indexRouter = require('./routes/index');
 
 var app = express();
-
+var usersRouter = require('./routes/users')
 mongoose.connect('mongodb://mario:mario123@ds113692.mlab.com:13692/healthy-food', { useNewUrlParser: true });
 
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -23,6 +23,7 @@ db.once('open', function () {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use('/',usersRouter)
 app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
