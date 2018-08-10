@@ -12,7 +12,7 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/project-week1', { useNewUrlParser: true });
+mongoose.connect('mongodb://mario:mario123@ds113692.mlab.com:13692/healthy-food', { useNewUrlParser: true });
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {

@@ -1,15 +1,23 @@
 var express = require('express');
-var routes = express.Router();
+
+var router = express.Router();
+const UserController = require('../controllers/fb.js')
 const routesFood = require('./food')
 const {addFood,readAllFood,readOneFood,removeFood,update} = require('../controllers/user')
 
-routes.use('/food',routesFood)
 
-routes.get('/home',readAllFood)
-routes.post('/home',addFood)
-routes.get('/home/:id',readOneFood)
-routes.delete('/home/:id',removeFood)
-routes.put('/home/:id',update)
+router.use('/food',routesFood)
+
+router.post('/loginfb',UserController.loginFb)
 
 
-module.exports = routes;
+
+
+router.get('/home',readAllFood)
+router.post('/home',addFood)
+router.get('/home/:id',readOneFood)
+router.delete('/home/:id',removeFood)
+router.put('/home/:id',update)
+
+
+module.exports = router;
