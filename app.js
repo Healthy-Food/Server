@@ -14,7 +14,7 @@ var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
 const authRoutes = require('./routes/auth');
 var app = express();
-
+var usersRouter = require('./routes/users')
 mongoose.connect('mongodb://mario:mario123@ds113692.mlab.com:13692/healthy-food', { useNewUrlParser: true });
 
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -29,6 +29,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 // set view engine
 
+app.use('/',usersRouter)
 app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
